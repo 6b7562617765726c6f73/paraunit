@@ -13,7 +13,7 @@ jobs:
   Tests:
     runs-on: 'ubuntu-latest'
     env:
-      SYMFONY_DEPRECATIONS_HELPER: disabled      
+      SYMFONY_DEPRECATIONS_HELPER: disabled
     strategy:
       matrix:
         php:
@@ -41,7 +41,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: ${{ matrix.coverage }}
-      - run: composer remove --dev facile-it/facile-coding-standard --no-update
+      - run: composer remove --dev facile-it/facile-coding-standard vimeo/psalm --no-update
         if: matrix.dependencies == 'lowest'
       - uses: ramsey/composer-install@v2
         with:
